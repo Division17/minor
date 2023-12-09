@@ -11,6 +11,7 @@ import { Button } from "@material-tailwind/react";
 import live from "../../../assets/images/live.png";
 import smile from "../../../assets/images/smile.png";
 import addImage from "../../../assets/images/add-image.png";
+import share from "../../../assets/images/send.png";
 import { AuthContext } from "../../SharedComponents/Context/AppContext";
 import {
   doc,
@@ -147,7 +148,7 @@ const Main = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex flex-col py-4 w-full bg-white rounded-3xl shadow-lg">
+      <div className="m-10 flex flex-col py-4 bg-white rounded-3xl shadow-md w-4/5 border-2">
         <div className="flex items-center border-b-2 border-gray-300 pb-4 pl-4 w-full">
           <Avatar
             size="sm"
@@ -161,7 +162,7 @@ const Main = () => {
                 <input
                   type="text"
                   name="text"
-                  placeholder={`Whats on your mind ${
+                  placeholder={`What's on your mind ? ${
                     user?.displayName?.split(" ")[0] ||
                     userData?.name?.charAt(0).toUpperCase() +
                       userData?.name?.slice(1)
@@ -181,7 +182,8 @@ const Main = () => {
               </div>
               <div className="mr-4">
                 <Button variant="text" type="submit">
-                  Share
+                  <img src={share} alt="" 
+                  className="h-6 w-10" />
                 </Button>
               </div>
             </div>
@@ -192,12 +194,12 @@ const Main = () => {
           className="bg-blue-700 py-1 rounded-md"
         ></span>
         <div className="flex justify-around items-center pt-4">
-          <div className="flex items-center">
+        <div className="flex items-center">
             <label
               htmlFor="addImage"
               className="cursor-pointer flex items-center"
             >
-              <img className="h-10 mr-4" src={addImage} alt="addImage"></img>
+              <img className="h-8 mr-4" src={addImage} alt="addImage"></img>
               <input
                 id="addImage"
                 type="file"
@@ -212,15 +214,15 @@ const Main = () => {
             )}
           </div>
           <div className="flex items-center">
-            <img className="h-10 mr-4" src={live} alt="live"></img>
+            <img className="h-6 mr-4" src={live} alt="live"></img>
             <p className="font-roboto font-medium text-md text-gray-700 no-underline tracking-normal leading-none">
-              Live
+              Add Doc
             </p>
           </div>
           <div className="flex items-center">
-            <img className="h-10 mr-4" src={smile} alt="feeling"></img>
+            <img className="h-8 mr-4" src={smile} alt="feeling"></img>
             <p className="font-roboto font-medium text-md text-gray-700 no-underline tracking-normal leading-none">
-              Feeling
+              Add Project
             </p>
           </div>
         </div>
@@ -233,7 +235,7 @@ const Main = () => {
             </Alert>
           </div>
         ) : (
-          <div>
+          <div className="flex items-center justify-center flex-col ">
             {state?.posts?.length > 0 &&
               state?.posts?.map((post, index) => {
                 return (

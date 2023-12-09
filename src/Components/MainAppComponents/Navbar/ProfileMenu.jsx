@@ -11,7 +11,7 @@ import {
   } from "@material-tailwind/react";
    
  function ProfileMenu() {
-  const { signOutUser, user} = useContext(AuthContext);
+  const { user} = useContext(AuthContext);
     return (
       <Menu>
         <MenuHandler>
@@ -66,7 +66,7 @@ import {
        
         
           <hr className="my-2 border-blue-gray-50 " />
-          <MenuItem className="flex items-center gap-2 " onClick={signOutUser}>
+          <MenuItem className="flex items-center gap-2 ">
             <svg 
               width="16"
               height="14"

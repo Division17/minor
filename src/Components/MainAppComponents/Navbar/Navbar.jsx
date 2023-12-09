@@ -10,7 +10,7 @@ const Navbar = () => {
         
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-gray-600 from-black cursor-pointer">
          
-            Conect
+            Connect
           </span>
         </div>
  

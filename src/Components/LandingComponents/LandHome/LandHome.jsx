@@ -14,18 +14,30 @@ function LandHome() {
           <Link to="/login">
           <button
             className=" border-2 
-            text-xl
-              border-custom-blue py-2 px-48 rounded-2xl
+                text-xl 
+                text-white
+               py-2 px-48 
+               border-none
+               bg-teal-300 rounded-2xl
               shadow-xl
-              hover:text-white hover:bg-custom-blue"
-          >Already a Member</button>
+              font-bold
+              hover:bg-teal-400
+              hover:border-2
+            "
+          > Member</button>
           </Link> 
           <Link to="/register">
           <button
-            className="border-2 bg-custom-blue border-custom-blue shadow-xl
-               py-2 px-52 rounded-2xl text-white 
-               text-xl
-               hover:text-black hover:bg-white"
+            className="border-2 
+            text-xl 
+            text-white
+           py-2 px-48 
+           border-none
+           bg-teal-300 rounded-2xl
+          shadow-xl
+          font-bold
+          hover:bg-teal-400
+          hover:border-2"
           >Join Us </button>
           </Link>
         </div>
