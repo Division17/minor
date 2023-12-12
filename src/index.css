@@ -4,7 +4,165 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+    list-style: none;
 
+    
+  }
+
+  .service{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 8%;
+    color: black;
+    background-color: beige;
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+  }
+  .service .content{
+    display: flex;
+    justify-content: space-between;
+    margin: 5rem;
+  
+  }
+  .service .content h1{
+    font-size: 3.7rem;
+    line-height: 3.7rem;
+    letter-spacing: 1px;
+    width: 40%;
+    color:rgb(50, 180, 180);
+  
+  }
+  .service .content p{
+    width: 50%;
+  }
+  
+  
+  
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+  }
+  .cards .card{
+    height: 220px;
+    width: 420px;
+    border: 4px solid rgba(17, 139, 107, 0.2);
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 8%;
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    overflow: hidden;
+    transition: .6s;
+  }
+  .cards .card:after{
+    position: absolute;
+    content: "";
+    height: 40%;
+    width: 8%;
+    top: 30%;
+    right: -4%;
+    background-color: rgb(31, 154, 154);
+    z-index: -1;
+    border-radius: 28px;
+    transition: .6s;
+    
+  }
+  .cards .card:hover{
+        color:white;
+        font-weight: 700;
+  }
+  .cards .card:hover:after{
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+  
+  }
+    
+  .cards .card h3{
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  
+  .cards .card ul li i{
+    margin-left: 12px;
+  }
+  
+  .cards .card ul li i{
+    margin-right: 8px;
+  }
+  .circle{
+    height: 750px;
+    width: 750px;
+    border: 150px solid rgba(48, 161, 192, 0.2);
+    position: absolute;
+    top: 48%;
+    left: 80%;
+    border-radius: 50%;
+  }
+  
+  @media(max-width:1200px){
+      .cards{
+              grid-template-columns: repeat(2,1fr);
+              margin: 0 auto;
+          }
+      }
+  
+  
+  @media(max-width:1100px){
+      .service.content h1{
+          font-size: 3.4rem;
+      }
+      .service.content{
+          flex-direction: column;
+          align-items: center;
+      }
+      .service .content h1,
+      .service .content p{
+          width: 100%;
+          text-align: center;
+      }
+      .service .content h1{
+          font-size: 2.5rem;
+          margin-top: 10px ;
+          margin-bottom: 30px;
+  
+      }
+      .circle{
+          display: none;
+      }
+      }
+  
+  @media(max-width:900px){
+      .cards{
+          grid-template-columns: repeat(2,1fr);
+          margin: 0 auto;
+      }
+      .card{
+          width: 80px;
+      }
+      .service .content h1{
+          font-size: 2rem;
+      }
+  
+  }
+  .sare-cards{
+    flex-wrap:wrap;
+  }
+  
+  
 .home {
     display: flex;
     justify-content: center;
@@ -39,8 +197,6 @@
 }
 
 .home-left-heading {
- 
-    color:#3D88B8;
     font-weight: 800;
     font-size: 4.2em;
     display: block;
@@ -55,7 +211,6 @@
 .home-wel-ele{
     margin-left: 60%;
     font-weight: 700;
-    color:#3D88B8;
     font-size: 2em;
     display: block;
 }
