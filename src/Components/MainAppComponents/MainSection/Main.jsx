@@ -182,8 +182,7 @@ const Main = () => {
               </div>
               <div className="mr-4">
                 <Button variant="text" type="submit">
-                  <img src={share} alt="" 
-                  className="h-6 w-10" />
+                  <img src={share} alt="" className="h-6 w-10" />
                 </Button>
               </div>
             </div>
@@ -194,7 +193,7 @@ const Main = () => {
           className="bg-blue-700 py-1 rounded-md"
         ></span>
         <div className="flex justify-around items-center pt-4">
-        <div className="flex items-center">
+          <div className="flex items-center">
             <label
               htmlFor="addImage"
               className="cursor-pointer flex items-center"

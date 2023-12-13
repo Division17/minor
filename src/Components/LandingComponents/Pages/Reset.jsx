@@ -14,13 +14,13 @@ const Reset = () => {
           you a link to reset your password
         </Typography>
         <form action="submit">
-        <Input
-          name="email"
-          type="email"
-          lable="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></Input>
+          <Input
+            name="email"
+            type="email"
+            lable="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></Input>
         </form>
         <Button variant="gradient" fullWidth className="mt-4">
           Continue

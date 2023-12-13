@@ -8,22 +8,25 @@ import {
 } from "@material-tailwind/react";
 import { Input } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import  { RegisterSchema } from "../Schemas/RegisterSchema"
+import { RegisterSchema } from "../Schemas/RegisterSchema";
 import ClipLoader from "react-spinners/ClipLoader";
 import { AuthContext } from "../../SharedComponents/Context/AppContext";
-import { auth, onAuthStateChanged } from "../../SharedComponents/firebase/Firebase";
+import {
+  auth,
+  onAuthStateChanged,
+} from "../../SharedComponents/firebase/Firebase";
 
 const RegisterPage = () => {
   const [loading, setLoading] = useState(false);
   const { registerWithEmailAndPassword } = useContext(AuthContext);
 
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       navigate("/main");
+        navigate("/main");
       }
     });
   }, [navigate]);
@@ -34,7 +37,7 @@ const RegisterPage = () => {
     password: "",
   };
 
-    const handleRegister = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     const { name, email, password } = formik.values;
     if (formik.isValid === true) {
@@ -46,7 +49,11 @@ const RegisterPage = () => {
     }
   };
 
-  const formik = useFormik({ initialValues, validationSchema: RegisterSchema, handleRegister });
+  const formik = useFormik({
+    initialValues,
+    validationSchema: RegisterSchema,
+    handleRegister,
+  });
 
   return (
     <>

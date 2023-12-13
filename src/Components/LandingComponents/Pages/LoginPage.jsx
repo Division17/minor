@@ -4,7 +4,10 @@ import { LoginSchema } from "../Schemas/LoginSchema";
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../SharedComponents/Context/AppContext";
-import { auth, onAuthStateChanged } from "../../SharedComponents/firebase/Firebase";
+import {
+  auth,
+  onAuthStateChanged,
+} from "../../SharedComponents/firebase/Firebase";
 import ClipLoader from "react-spinners/ClipLoader";
 import {
   Card,
@@ -16,22 +19,20 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-
 export const LoginPage = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-  
+
   const { signInWithGoogle, loginWithEmailAndPassword } =
     useContext(AuthContext);
 
   useEffect(() => {
-    
     onAuthStateChanged(auth, (user) => {
       if (user) {
-       navigate("/main");
+        navigate("/main");
         setLoading(false);
-      }       
+      }
     });
   }, [navigate]);
 
@@ -46,24 +47,24 @@ export const LoginPage = () => {
     if (formik.isValid === true) {
       loginWithEmailAndPassword(email, password);
       setLoading(true);
-    }  else{
-      alert("Enter a valid Email and Password or try Joining")
+    } else {
+      alert("Enter a valid Email and Password or try Joining");
       setLoading(false);
     }
   };
 
- const formik = useFormik({
-  initialValues,
-  validationSchema:LoginSchema,
-  handleSubmit 
- });
+  const formik = useFormik({
+    initialValues,
+    validationSchema: LoginSchema,
+    handleSubmit,
+  });
 
   return (
     <>
       {loading ? (
         <div className="grid grid-cols-1 justify-items-center items-center h-screen">
           <ClipLoader color="#367fd6" size={150} speedMultiplier={0.5} />
-        </div> 
+        </div>
       ) : (
         <div className="grid grid-cols-1 h-screen justify-items-center items-center">
           <Card className="w-96 shadow-md border-2 border-gray-300">
@@ -85,8 +86,7 @@ export const LoginPage = () => {
                     id="email"
                     label="Email"
                     size="lg"
-                  
-                  {...formik.getFieldProps("email")}
+                    {...formik.getFieldProps("email")}
                   />
                 </div>
                 <div>
@@ -103,7 +103,7 @@ export const LoginPage = () => {
                     type="password"
                     label="Password"
                     size="lg"
-                  {...formik.getFieldProps("password")}
+                    {...formik.getFieldProps("password")}
                   />
                   <div>
                     {formik.touched.password && formik.errors.password && (
